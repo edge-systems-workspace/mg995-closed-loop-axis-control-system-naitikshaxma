@@ -1,26 +1,34 @@
 #include <Arduino.h>
 #include <Servo.h>
 
+/**
+ * @file main.cpp
+ * @brief MG995 Closed Loop Axis Control
+ * @author Naitik Sharma
+ * @date 2026-02-28
+ */
+
 Servo axisServo;
 #define SERVO_PIN 9
 
 void setup() {
     Serial.begin(9600);
     axisServo.attach(SERVO_PIN);
-    Serial.println("MG995 Axis Control Initialized...");
+    Serial.println("MG995 Closed Loop Axis Started...");
 }
 
 void loop() {
 
-    // TODO 5:
-    // Move servo to 0 degrees
-    axisServo.write(0);
-    Serial.println("Axis Position: 0°");
-    delay(2000);
+    // TODO 7:
+    // Sweep servo forward
+    for (int angle = 0; angle <= 180; angle += 5) {
+        axisServo.write(angle);
+        delay(50);
+    }
 
-    // TODO 6:
-    // Move servo to 90 degrees
-    axisServo.write(90);
-    Serial.println("Axis Position: 90°");
-    delay(2000);
+    // Sweep servo backward
+    for (int angle = 180; angle >= 0; angle -= 5) {
+        axisServo.write(angle);
+        delay(50);
+    }
 }
