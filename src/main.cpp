@@ -2,21 +2,23 @@
 #include <Servo.h>
 
 /**
- * @file main.cpp
- * @brief MG995 Closed Loop Axis Control
- * @author Naitik Sharma
- * @date 2026-02-28
+ * MG995 Closed Loop Axis Control
  */
 
-// TODO 1:
-// Create Servo object
 Servo axisServo;
-
-// TODO 2:
-// Define servo control pin (Use pin 9)
 #define SERVO_PIN 9
 
 void setup() {
+
+    // TODO 3:
+    // Initialize Serial communication
+    Serial.begin(9600);
+
+    // TODO 4:
+    // Attach servo to defined pin
+    axisServo.attach(SERVO_PIN);
+
+    Serial.println("MG995 Axis Control Initialized...");
 }
 
 void loop() {
