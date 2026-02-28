@@ -1,25 +1,26 @@
 #include <Arduino.h>
 #include <Servo.h>
 
-/**
- * MG995 Closed Loop Axis Control
- */
-
 Servo axisServo;
 #define SERVO_PIN 9
 
 void setup() {
-
-    // TODO 3:
-    // Initialize Serial communication
     Serial.begin(9600);
-
-    // TODO 4:
-    // Attach servo to defined pin
     axisServo.attach(SERVO_PIN);
-
     Serial.println("MG995 Axis Control Initialized...");
 }
 
 void loop() {
+
+    // TODO 5:
+    // Move servo to 0 degrees
+    axisServo.write(0);
+    Serial.println("Axis Position: 0°");
+    delay(2000);
+
+    // TODO 6:
+    // Move servo to 90 degrees
+    axisServo.write(90);
+    Serial.println("Axis Position: 90°");
+    delay(2000);
 }
